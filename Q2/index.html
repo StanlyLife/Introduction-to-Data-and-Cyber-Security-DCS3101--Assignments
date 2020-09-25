@@ -7,19 +7,57 @@
 	</head>
 	<body>
 		<form action="">
-			<div class="form-row">
-				<label for="">Key</label>
-				<input id="i-key" type="text" />
+			<div class="key-row">
+				<div class="form-row">
+					<label for="">Key 1</label>
+					<input id="i-key-one" type="text" />
+				</div>
+				<div class="form-row">
+					<label for="">Key 2</label>
+					<input disabled id="i-key-two" type="text" />
+				</div>
+				<div class="form-row">
+					<label for="">Final Key</label>
+					<input disabled id="i-key-double" type="text" />
+				</div>
 			</div>
 			<div class="form-row">
 				<label for="">Input</label>
-				<input id="i-input" type="text" />
+				<input disabled id="i-input" type="text" />
 			</div>
 			<div class="form-row">
 				<label for="">Output</label>
 				<input disabled id="i-output" type="text" />
 			</div>
 		</form>
+		<br />
+		<hr />
+		<br />
+		<form action="">
+			<div class="key-row">
+				<div class="form-row">
+					<label for="">Key 1</label>
+					<input id="decode-i-key-one" type="text" />
+				</div>
+				<div class="form-row">
+					<label for="">Key 2</label>
+					<input disabled id="decode-i-key-two" type="text" />
+				</div>
+				<div class="form-row">
+					<label for="">Final Key</label>
+					<input disabled id="decode-i-key-double" type="text" />
+				</div>
+			</div>
+			<div class="form-row">
+				<label for="">Input</label>
+				<input disabled id="decode-i-input" type="text" />
+			</div>
+			<div class="form-row">
+				<label for="">Output</label>
+				<input disabled id="decode-i-output" type="text" />
+			</div>
+		</form>
 		<script src="script.js"></script>
+		<script src="decode.js"></script>
 	</body>
 </html>
