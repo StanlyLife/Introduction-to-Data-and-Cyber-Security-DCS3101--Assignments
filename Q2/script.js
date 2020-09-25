@@ -1,6 +1,8 @@
 const textIn = document.querySelector("#i-input");
 const textOut = document.querySelector("#i-output");
-const textKey = document.querySelector("#i-key");
+const textKey = document.querySelector("#i-key-one");
+const textKeyTwo = document.querySelector("#i-key-two");
+const textKeyFinal = document.querySelector("#i-key-double");
 
 const alphabeth = "abcdefghijklmnopqrstuvwxyz";
 let cipherText = "";
@@ -8,28 +10,43 @@ let cipherText = "";
 function KeyExistsCheck() {
 	if (textKey.value.length < 1) {
 		textIn.disabled = true;
+		textKeyTwo.disabled = true;
+		textKeyTwo.value = "";
 	} else {
 		textIn.disabled = false;
+		textKeyTwo.disabled = false;
 	}
 }
+
+function InputExistsCheck() {
+	if (textIn.value.length < 1) {
+		textKey.disabled = false;
+		textKeyTwo.disabled = false;
+	} else {
+		textKey.disabled = true;
+		textKeyTwo.disabled = true;
+	}
+}
+textKeyTwo.addEventListener("input", () => (textKeyFinal.value = ""));
 
 textKey.addEventListener("input", (e) => KeyExistsCheck());
 
 textIn.addEventListener("focus", (e) => KeyExistsCheck());
 
 textIn.addEventListener("input", (e) => {
-	if (textIn.value.length < 1) {
-		textKey.disabled = false;
+	InputExistsCheck();
+	if (textKeyTwo.value.length > 0) {
+		//has double key
+		let finalKey = vigenere(textKey.value, textKeyTwo.value);
+		textKeyFinal.value = finalKey;
+		textOut.value = vigenere(textIn.value, finalKey);
 	} else {
-		textKey.disabled = true;
+		//has single key
+		textOut.value = vigenere(textIn.value, textKey.value);
 	}
-
-	// textOut.value = textKey.value + textIn.value;
-	// var lastChar = textIn.value.substr(textIn.value.length - 1);
-	textOut.value = vigenere(textIn.value);
 });
 
-function vigenere(plainText) {
+function vigenere(plainText, key) {
 	console.log("\n");
 	const plainTextShift = 1; /* Start at 0, not 1 */
 	let chipherText = "";
@@ -44,8 +61,8 @@ function vigenere(plainText) {
 			return;
 		}
 
-		const keyPlainTextIndex = counter % textKey.value.length;
-		const keyCharacter = textKey.value[keyPlainTextIndex];
+		const keyPlainTextIndex = counter % key.length;
+		const keyCharacter = key[keyPlainTextIndex];
 		const keyCharacterAlphabethIndex = alphabeth.indexOf(
 			keyCharacter.toLowerCase()
 		);
