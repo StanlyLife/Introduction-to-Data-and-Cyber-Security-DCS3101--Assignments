@@ -4,60 +4,78 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
+		<link rel="stylesheet" href="dist/main.css" />
 	</head>
 	<body>
-		<form action="">
-			<div class="key-row">
-				<div class="form-row">
-					<label for="">Key 1</label>
-					<input id="i-key-one" type="text" />
-				</div>
-				<div class="form-row">
-					<label for="">Key 2</label>
-					<input disabled id="i-key-two" type="text" />
-				</div>
-				<div class="form-row">
-					<label for="">Final Key</label>
-					<input disabled id="i-key-double" type="text" />
-				</div>
+		<div class="wrapper">
+			<div class="encode-form">
+				<h2>Encode</h2>
+				<form action="">
+					<div class="key-row">
+						<div class="form-row">
+							<label for="">Key 1</label>
+							<input id="i-key-one" type="text" />
+						</div>
+						<div class="form-row">
+							<label for="">Key 2</label>
+							<input disabled id="i-key-two" type="text" />
+						</div>
+						<div class="form-row">
+							<label for="">Final Key</label>
+							<input disabled id="i-key-double" type="text" />
+						</div>
+					</div>
+					<div class="form-row">
+						<label for="">Input</label>
+						<textarea disabled id="i-input" type="text"></textarea>
+					</div>
+					<div class="form-row">
+						<label for="">Output</label>
+						<textarea disabled id="i-output" type="text"></textarea>
+					</div>
+				</form>
 			</div>
-			<div class="form-row">
-				<label for="">Input</label>
-				<input disabled id="i-input" type="text" />
+			<div class="decode-form">
+				<h2>Decode</h2>
+				<form action="">
+					<div class="key-row">
+						<div class="form-row">
+							<label for="">Key 1</label>
+							<input id="decode-i-key-one" type="text" />
+						</div>
+						<div class="form-row">
+							<label for="">Key 2</label>
+							<input disabled id="decode-i-key-two" type="text" />
+						</div>
+						<div class="form-row">
+							<label for="">Final Key</label>
+							<input
+								disabled
+								id="decode-i-key-double"
+								type="text"
+							/>
+						</div>
+					</div>
+					<div class="form-row">
+						<label for="">Input</label>
+						<textarea
+							disabled
+							id="decode-i-input"
+							type="text"
+						></textarea>
+					</div>
+					<div class="form-row">
+						<label for="">Output</label>
+						<textarea
+							disabled
+							id="decode-i-output"
+							type="text"
+						></textarea>
+					</div>
+				</form>
 			</div>
-			<div class="form-row">
-				<label for="">Output</label>
-				<input disabled id="i-output" type="text" />
-			</div>
-		</form>
-		<br />
-		<hr />
-		<br />
-		<form action="">
-			<div class="key-row">
-				<div class="form-row">
-					<label for="">Key 1</label>
-					<input id="decode-i-key-one" type="text" />
-				</div>
-				<div class="form-row">
-					<label for="">Key 2</label>
-					<input disabled id="decode-i-key-two" type="text" />
-				</div>
-				<div class="form-row">
-					<label for="">Final Key</label>
-					<input disabled id="decode-i-key-double" type="text" />
-				</div>
-			</div>
-			<div class="form-row">
-				<label for="">Input</label>
-				<input disabled id="decode-i-input" type="text" />
-			</div>
-			<div class="form-row">
-				<label for="">Output</label>
-				<input disabled id="decode-i-output" type="text" />
-			</div>
-		</form>
-		<script src="script.js"></script>
-		<script src="decode.js"></script>
+			<script src="script.js"></script>
+			<script src="decode.js"></script>
+		</div>
 	</body>
 </html>
